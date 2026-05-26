@@ -1,6 +1,6 @@
 # CodeCheckAgent ? Multi-Agent Code Review & Auto-Fix System
 
-**English** | [??](README.md)
+**English** | [中文](README.md)
 
 ---
 A CLI tool built with AI, implementing multi-agent collaborative code review and automatic fix.
