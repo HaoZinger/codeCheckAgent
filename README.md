@@ -15,9 +15,6 @@
 
 ```bash
 # 1. 进入项目目录
-[English](README_EN.md) | **??**
-
----
 cd codeCheckAgent
 
 # 2. 安装依赖
