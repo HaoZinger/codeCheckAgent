@@ -1,4 +1,8 @@
-﻿# CodeCheckAgent - 多 Agent 协作代码审查与自动修复系统
+# CodeCheckAgent - 多 Agent 协作代码审查与自动修复系统
+
+[English](README_EN.md) | **中文**
+
+---
 
 利用 AI 工具构建的命令行工具，实现多 Agent 协作的代码审查与自动修复。
 
@@ -11,6 +15,9 @@
 
 ```bash
 # 1. 进入项目目录
+[English](README_EN.md) | **??**
+
+---
 cd codeCheckAgent
 
 # 2. 安装依赖
