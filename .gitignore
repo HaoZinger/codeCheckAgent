@@ -1,0 +1,30 @@
+﻿# .gitignore for CodeCheckAgent
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Output directory (reports + fixed code)
+codecheck_output/
+
+# Temp files
+*.tmp
+*.log
+_write_log.py
+_append.py
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Sensitive: config with API keys (keep template only)
+# Users should copy config.yaml to config.local.yaml
+config.local.yaml

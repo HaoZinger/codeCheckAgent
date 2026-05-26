@@ -1,0 +1,97 @@
+﻿# ============================================================
+# CodeCheckAgent Configuration File
+# ============================================================
+# Copy and modify as needed, or use CLI arguments / env vars.
+#
+# Provider presets:
+#   openai       - OpenAI (GPT-4o, etc.)          env: OPENAI_API_KEY    json_mode: ON
+#   deepseek-v4  - DeepSeek V4 Pro                env: DEEPSEEK_API_KEY  json_mode: ON
+#   custom       - Any OpenAI-compatible endpoint  env: OPENAI_API_KEY   json_mode: OFF
+#
+# Note: json_mode uses OpenAI''s response_format={"type":"json_object"}.
+# Disable it for providers that don''t support this feature (some custom endpoints, etc.).
+# ============================================================
+
+# LLM Provider (one of: openai, deepseek-v4, custom)
+provider: "deepseek-v4"
+
+# API settings (override provider defaults if needed)
+api_key: ""  #xxxxxxx"          # API key (also settable via env var)
+api_base: ""         # Override provider''s default API base URL
+
+# ============================================================
+# Agent-specific settings
+# ============================================================
+
+reviewer:
+  model: ""          # Leave empty to use provider default
+  temperature: 0.3
+  max_tokens: 16384
+  max_retries: 3
+  retry_delay_seconds: 2.0
+  timeout_seconds: 120
+  use_json_mode: true      # Set false for providers without JSON mode support
+
+fixer:
+  model: ""
+  temperature: 0.2
+  max_tokens: 16384
+  max_retries: 3
+  retry_delay_seconds: 2.0
+  timeout_seconds: 120
+  use_json_mode: true
+
+validator:
+  model: ""
+  temperature: 0.2
+  max_tokens: 16384
+  max_retries: 3
+  retry_delay_seconds: 2.0
+  timeout_seconds: 120
+  use_json_mode: true
+
+# ============================================================
+# Orchestrator settings
+# ============================================================
+
+orchestrator:
+  max_rounds: 4
+  max_file_chars: 4000
+  output_dir: "./codecheck_output"
+
+# ============================================================
+# File type support
+# ============================================================
+
+supported_extensions:
+  - ".py"
+  - ".js"
+  - ".ts"
+  - ".jsx"
+  - ".tsx"
+  - ".java"
+  - ".go"
+  - ".rs"
+  - ".c"
+  - ".cpp"
+  - ".h"
+  - ".hpp"
+  - ".cs"
+  - ".rb"
+  - ".php"
+  - ".swift"
+  - ".kt"
+  - ".scala"
+  - ".sql"
+  - ".sh"
+  - ".bash"
+  - ".ps1"
+  - ".yaml"
+  - ".yml"
+  - ".json"
+  - ".xml"
+  - ".html"
+  - ".css"
+  - ".scss"
+  - ".md"
+  - ".txt"
