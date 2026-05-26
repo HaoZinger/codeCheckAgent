@@ -1,8 +1,9 @@
-# CodeCheckAgent ? Multi-Agent Code Review & Auto-Fix System
+# CodeCheckAgent -- Multi-Agent Code Review & Auto-Fix System
 
 **English** | [中文](README.md)
 
 ---
+
 A CLI tool built with AI, implementing multi-agent collaborative code review and automatic fix.
 
 ## Requirements
@@ -49,7 +50,7 @@ Press `Ctrl+C` at any time during execution:
 Generating partial report from completed rounds...
 ```
 
-The system saves results from completed rounds, generates a partial report, and preserves already-fixed code ? no progress is lost.
+The system saves results from completed rounds, generates a partial report, and preserves already-fixed code -- no progress is lost.
 
 ## Supported LLM Providers
 
@@ -83,30 +84,30 @@ python src/main.py ./test_sample --provider deepseek-v4 --verbose
 
 | Argument | Short | Description | Default |
 |----------|-------|-------------|---------|
-| `target` | ? | Target code directory (required) | ? |
+| `target` | -- | Target code directory (required) | -- |
 | `--provider` | `-p` | LLM provider preset | `openai` |
 | `--config` | `-c` | YAML config file path | `config.yaml` |
 | `--output` | `-o` | Output directory | `./codecheck_output` |
 | `--max-rounds` | `-r` | Max review rounds | 3 |
-| `--api-key` | ? | API key (overrides all sources) | ? |
-| `--api-base` | ? | API base URL (overrides preset) | ? |
-| `--model` | ? | Model name (overrides preset) | provider default |
+| `--api-key` | -- | API key (overrides all sources) | -- |
+| `--api-base` | -- | API base URL (overrides preset) | -- |
+| `--model` | -- | Model name (overrides preset) | provider default |
 | `--verbose` | `-v` | Verbose logging | off |
-| `--list-providers` | ? | List all provider presets | ? |
+| `--list-providers` | -- | List all provider presets | -- |
 
 ## Architecture
 
 ```
-Input(dir) ? Scanner ? Orchestrator ? Reporter ? Output(report+code)
-                 ?            ?
-                 ?   Ctrl+C ? graceful interrupt + partial report
-                 ?
-       ?????????????????????
-       ?         ?         ?
- Reviewer  ?  Fixer  ?  Validator
+Input(dir) --> Scanner --> Orchestrator --> Reporter --> Output(report+code)
+                 |            |
+                 |   Ctrl+C --> graceful interrupt + partial report
+                 |
+       +---------+---------+
+       |         |         |
+ Reviewer  --> Fixer --> Validator
   (review)    (fix)     (validate)
-       ?????????????????????
-                 ?
+       +---------+---------+
+                 |
         multi-round until convergence
 ```
 
@@ -124,11 +125,11 @@ Each run generates in the output directory:
 
 ```
 codecheck_output/
-??? codecheck.log          # Full debug log
-??? review_report.md       # Markdown review report
-??? review_report.json     # JSON review report
-??? fixed_code/            # Fixed code files
-    ??? ...
++-- codecheck.log          # Full debug log
++-- review_report.md       # Markdown review report
++-- review_report.json     # JSON review report
++-- fixed_code/            # Fixed code files
+    +-- ...
 ```
 
 ## Config File Example
